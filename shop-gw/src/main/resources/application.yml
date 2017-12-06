@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: shop-gw
+server:
+  port: 8770
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://localhost:7777/eureka/
+      defaultZone: http://registry-server-1:7777/eureka/
+zuul:
+  routes:
+    api-a:
+      path: /api-product/**
+      serviceId: shop-user
+    api-b:
+      path: /api-user/**
+      serviceId: shop-product

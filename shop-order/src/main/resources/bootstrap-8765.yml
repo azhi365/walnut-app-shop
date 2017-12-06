@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: shop-order
+  zipkin:
+    base-url:http://localhost:9411
+  cloud:
+    config:
+      #label: master
+      #profile: dev
+      discovery:
+        service-id: walnut-config-server
+        enabled: true
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: 192.168.1.250
+    port: 5672
+    username: admin
+    password: admin123
+server:
+  port: 8765
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://localhost:7777/eureka/
+      defaultZone: http://registry-server-1:7777/eureka/
+management:
+  health:
+    refresh:
+      enabled: false
+  port: 54005
+  security:
+    enabled: false
+feign:
+  hystrix:
+    enabled: true
+
+#不使用eureka时 config ribbon
+#shop-user:
+#  ribbon:
+#    eureka:
+#      enabled: false
+#    listOfServers: localhost:8762, localhost:8763 ##假设provider有3台instance端口分别是8000 8002 8003
+#    ServerListRefreshInterval: 15000
+
+

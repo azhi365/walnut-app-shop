@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: shop-product
+  zipkin:
+    base-url:http://localhost:9411
+  cloud:
+    config:
+      #label: master
+      #profile: dev
+      uri: http://localhost:7780/
+      enabled: true
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://localhost:7777/eureka/
+      defaultZone: http://registry-server-1:7777/eureka/

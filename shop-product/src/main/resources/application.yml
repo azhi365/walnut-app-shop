@@ -1,0 +1,9 @@
+server:
+  port: 8761
+management:
+  health:
+    refresh:
+      enabled: false
+  port: 54001
+  security:
+    enabled: false
